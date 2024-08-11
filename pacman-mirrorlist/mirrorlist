@@ -1,0 +1,97 @@
+#
+# Arch Linux ARM repository mirrorlist
+# Last updated on 2024-08-12
+#
+
+## Arch Linux ARM Mirror with load balancing
+Server = http://mirror.archlinuxarm.org/$arch/$repo
+
+### Arch Linux ARM Mirrors by country
+
+### Denmark
+## Aalborg
+# Server = http://dk.mirror.archlinuxarm.org/$arch/$repo
+
+### Germany
+## Aachen
+# Server = http://de3.mirror.archlinuxarm.org/$arch/$repo
+## Berlin
+# Server = http://de.mirror.archlinuxarm.org/$arch/$repo
+## Coburg
+# Server = http://de4.mirror.archlinuxarm.org/$arch/$repo
+## Falkenstein
+# Server = http://eu.mirror.archlinuxarm.org/$arch/$repo
+# Server = http://de5.mirror.archlinuxarm.org/$arch/$repo
+
+### Greece
+## Athens
+# Server = http://gr.mirror.archlinuxarm.org/$arch/$repo
+
+### Hungary
+## Budapest
+# Server = http://hu.mirror.archlinuxarm.org/$arch/$repo
+
+### Japan
+## Tokyo
+# Server = http://jp.mirror.archlinuxarm.org/$arch/$repo
+
+### Singapore
+# Server = http://sg.mirror.archlinuxarm.org/$arch/$repo
+
+### Taiwan
+## Hsinchu
+# Server = http://tw2.mirror.archlinuxarm.org/$arch/$repo
+## New Taipei City
+# Server = http://tw.mirror.archlinuxarm.org/$arch/$repo
+
+### United Kingdom
+## London
+# Server = http://uk.mirror.archlinuxarm.org/$arch/$repo
+
+### United States
+## California
+# Server = http://ca.us.mirror.archlinuxarm.org/$arch/$repo
+## Florida
+# Server = http://fl.us.mirror.archlinuxarm.org/$arch/$repo
+## New Jersey
+# Server = http://nj.us.mirror.archlinuxarm.org/$arch/$repo
+
+### 3rd-Party Mirrors by country
+
+### China
+## Tsinghua University
+# Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/$arch/$repo
+## Beijing Foreign Studies University
+# Server = https://mirrors.bfsu.edu.cn/archlinuxarm/$arch/$repo
+## University of Science and Technology of China
+# Server = https://mirrors.ustc.edu.cn/archlinuxarm/$arch/$repo
+## Jilin University
+# Server = https://mirrors.jlu.edu.cn/archlinuxarm/$arch/$repo
+## Nanjing University
+# Server = https://mirror.nju.edu.cn/archlinuxarm/$arch/$repo
+## Nanyang Institute of Technology
+# Server = https://mirror.nyist.edu.cn/archlinuxarm/$arch/$repo
+## Shanghai Jiao Tong University
+# Server = https://mirrors.sjtug.sjtu.edu.cn/archlinuxarm/$arch/$repo
+## Alibaba Cloud
+# Server = https://mirrors.aliyun.com/archlinuxarm/$arch/$repo
+## Tencent Cloud
+# Server = https://mirrors.cloud.tencent.com/archlinuxarm/$arch/$repo
+## NetEase, Inc.
+# Server = https://mirrors.163.com/archlinuxarm/$arch/$repo
+
+### Russia
+## Yandex LLC
+# Server = https://mirror.yandex.ru/archlinux-arm/$arch/$repo
+
+### Taiwan
+## Taiwan Digital Streaming Co.
+# Server = https://mirror.twds.com.tw/archlinuxarm/$arch/$repo
+
+### Germany
+## xTom (Web Hosting)
+# Server = https://mirrors.xtom.de/archlinux-arm/$arch/$repo
+
+### United States
+## Princeton University
+# Server = https://mirror.math.princeton.edu/pub/archlinuxarm/$arch/$repo
