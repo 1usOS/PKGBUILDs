@@ -1,0 +1,11 @@
+NAME="1usOS"
+PRETTY_NAME="1usOS (Arch Linux)"
+ID=1usos
+ID_LIKE=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://os.1us.ca"
+DOCUMENTATION_URL="https://wiki.1us.ca"
+SUPPORT_URL="https://community.1us.ca"
+BUG_REPORT_URL="https://github.com/1usOS/PKGBUILDs/issues"
+LOGO=1usOS-logo

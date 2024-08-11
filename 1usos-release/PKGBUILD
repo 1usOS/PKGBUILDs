@@ -1,0 +1,30 @@
+# Maintainer: Samuel (kwankiu) <info@1us.ca>
+
+pkgname=1usos-release
+pkgver=20240812
+pkgrel=1
+pkgdesc="1usOS Branding & Release"
+url="https://os.1us.ca"
+arch=('any')
+license=('GPL3')
+backup=('etc/os-release')
+source=("os-release")
+sha256sums=('fab7a465302b899c6daede6a61709e67af68fcb1783f5b7ed59ca4ddd5218bf5')
+
+package() {
+  install -Dm644 os-release "${pkgdir}/etc/os-release.pacnew"
+}
+
+post_install() {
+  rm /etc/os-release
+  mv /etc/os-release.pacnew /etc/os-release
+  chmod 644 /etc/os-release
+  echo "The /etc/os-release file has been updated."
+}
+
+post_upgrade() {
+  rm /etc/os-release
+  mv /etc/os-release.pacnew /etc/os-release
+  chmod 644 /etc/os-release
+  echo "The /etc/os-release file has been updated."
+}

@@ -1,0 +1,15 @@
+# Maintainer: Samuel (kwankiu) <info@1us.ca>
+
+pkgname=1usos-keyring
+pkgver=20240812
+pkgrel=1
+pkgdesc="1usOS repo PGP keyring"
+arch=('any')
+url='https://mirror.1us.ca'
+license=('GPL3')
+source=()
+sha256sums=()
+
+package() {
+  # placeholder
+}
