@@ -3,14 +3,14 @@
 pkgname=pacman-mirrorlist
 pkgver=20240812
 pkgrel=1
-pkgdesc="Arch Linux ARM mirror list for use by pacman (with 3rd-party mirrors)"
+pkgdesc="Arch Linux ARM mirror list for use by pacman"
 arch=('any')
 url="http://www.archlinuxarm.org/about/mirrors"
 license=('GPL')
 groups=('base')
 backup=(etc/pacman.d/mirrorlist)
 source=(mirrorlist)
-md5sums=('458b152ed217fd899f72c719cdb4bf5d')
+md5sums=('9dba985674226acccb912d045bef9054')
 
 package() {
   mkdir -p $pkgdir/etc/pacman.d
