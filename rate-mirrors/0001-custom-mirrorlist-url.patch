@@ -1,0 +1,25 @@
+From 2f84e9ab65860552378994bc96bb0fd2b28eabdc Mon Sep 17 00:00:00 2001
+From: Samuel <info@1us.ca>
+Date: Thu, 22 Aug 2024 19:29:02 +0800
+Subject: [PATCH] custom mirrorlist url
+
+---
+ src/targets/archarm.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/targets/archarm.rs b/src/targets/archarm.rs
+index 36736f6..15ee8c9 100644
+--- a/src/targets/archarm.rs
++++ b/src/targets/archarm.rs
+@@ -30,7 +30,7 @@ impl FetchMirrors for ArcharmTarget {
+         config: Arc<Config>,
+         _tx_progress: mpsc::Sender<String>,
+     ) -> Result<Vec<Mirror>, AppError> {
+-        let url = "https://raw.githubusercontent.com/archlinuxarm/PKGBUILDs/master/core/pacman-mirrorlist/mirrorlist";
++        let url = "https://raw.githubusercontent.com/1usOS/PKGBUILDs/misc/pacman-mirrorlist/mirrorlist";
+ 
+         let output = Runtime::new().unwrap().block_on(async {
+             Ok::<_, AppError>(
+-- 
+2.39.3 (Apple Git-145)
+
