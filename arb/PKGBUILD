@@ -1,0 +1,42 @@
+# Maintainer: Samuel (kwankiu) <info@1us.ca>
+
+pkgname=arb
+pkgver=714335e
+pkgrel=1
+pkgdesc="A naive builder to build Arch packages, mainly those from AUR, and create a sane folder structure for repo hosted on Github releases"
+arch=('x86_64' 'aarch64')
+url="https://github.com/7Ji/${pkgname}"
+license=('custom')
+options=(!lto)
+source=("git+${url}.git"
+        "0001-fix-alpm-aarch64-issue.patch")
+sha256sums=('SKIP'
+            '6c5803bdbad33f1134641a8335bec61ca4d87c708dd5ceef6e68f0f2e295b459')
+depends=('gcc-libs' 'bc' 'git')
+makedepends=('cargo' 'rust-bindgen')
+
+pkgver() {
+  cd "${pkgname}"
+
+  echo "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "${pkgname}"
+
+  # Fix alpm for aarch64
+  patch -p1 -i ../0001-fix-alpm-aarch64-issue.patch
+
+  export RUSTUP_TOOLCHAIN=stable
+  export CARGO_TARGET_DIR=target
+  cargo build --release
+}
+
+package() {
+  cd "${pkgname}"
+
+  strip target/release/arch_repo_builder -o target/release/arb
+  install -Dm755 "target/release/arb" "$pkgdir/usr/bin/${pkgname}"
+  install -Dm644 "LICENSE-MIT" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE-MIT"
+  install -Dm644 "LICENSE-APACHE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE-APACHE"
+}
