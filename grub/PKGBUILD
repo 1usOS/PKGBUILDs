@@ -8,7 +8,7 @@
 #    it's not supported on aarch64
 #  - Drop everything but packaging /etc/grub/default in
 #    _package_grub-common_and_bios()
-#  - patch to add /boot/Image to kernel path
+#  - patch to support /boot/Image and /boot/Image.gz
 
 buildarch=8
 
@@ -68,6 +68,7 @@ source=("git+https://git.savannah.gnu.org/git/grub.git#tag=grub-${_pkgver}"
         "https://ftp.gnu.org/gnu/unifont/unifont-${_unifont_ver}/unifont-${_unifont_ver}.bdf.gz"
         '0001-00_header-add-GRUB_COLOR_-variables.patch'
         '0002-support-dropins-for-default-configuration.patch'
+		'0003-10_linux-Support-Image-Image-gz.patch'
         'grub.default'
         'sbat.csv')
 
@@ -76,6 +77,7 @@ sha256sums=('SKIP'
             '8ea5b5a14d71e3353d1fea373f5d88d198ad1e285cedd8294655926ee11fd91d'
             '5dee6628c48eef79812bb9e86ee772068d85e7fcebbd2b2b8d1e19d24eda9dab'
             'b5d9fcd62ffb3c3950fdeb7089ec2dc2294ac52e9861980ad90a437dedbd3d47'
+			'1b1e177812a5bcb299c06c7f05534768cf9135870cf920d400b0e87f25001ff7'
             '7df3f5cb5df7d2dfb17f4c9b5c5dedc9519ddce6f8d2c6cd43d1be17cecb65cb'
             'f34c2b0aa2ed4ab9c7e7bcab5197470c30fedc6c2148f337839dd24bceae35fd')
 
@@ -131,6 +133,9 @@ prepare() {
 
 	echo "Patch to support dropins for default configuration..."
 	patch -Np1 -i "${srcdir}/0002-support-dropins-for-default-configuration.patch"
+
+	echo "Patch to support kernel image named Image or Image.gz ..."
+	patch -Np1 -i "${srcdir}/0003-10_linux-Support-Image-Image-gz.patch"
 
 	echo "Fix DejaVuSans.ttf location so that grub-mkfont can create *.pf2 files for starfield theme..."
 	sed 's|/usr/share/fonts/dejavu|/usr/share/fonts/dejavu /usr/share/fonts/TTF|g' -i "configure.ac"
