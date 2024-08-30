@@ -1,0 +1,72 @@
+# Example Repository Configuration
+
+config:
+    host:
+        # Host Configuration
+        # Install packages on host machine
+        pkgs: [bc, arb, git, base-devel, arch-install-scripts, qemu-user-static, qemu-user-static-binfmt]
+        # Run commands on host machine
+        commands: |
+            echo "Hello, World!"
+    acu:
+        # ACU Configuration
+        # ACU Repositories
+        repo_name: AUR
+        repo_type: git
+        repo_url: https://aur.archlinux.org
+        repo_name: rockchip
+        repo_type: git
+        repo_url: https://github.com/kwankiu/PKGBUILDs:rockchip
+    arb:
+        # ARB Configuration
+        dephash_strategy: strict
+        basepkgs: [base-devel, bc, distcc, ccache]
+        home_binds: [.cache/ccache, .config/ccache]
+
+packages:
+    #name: Name of the Package
+    #source: Set where to source the package, available values are auto, build, mirror, disabled, hold.
+    #   * Optional when only one source is available
+    #   * auto     - get the package from mirror when available, otherwise build the package from source
+    #   * build    - build the package from source
+    #   * mirror   - get the package from mirror
+    #   * disabled - temporarily remove this package
+    #   * hold     - do not update this package
+    #build: URL/Path to be cloned as a PKGBUILD source
+    #   * Optional when mirror is available
+    #   * Accepts local file path or clone url
+    #   * You can use acu repo to set shortcuts such as GH/ or AUR/
+    #   * To specify a branch other than the default branch, use a colon at the ending of the path, like GH/USER/REPO:BRANCH
+    #   * If you specify a git username/organization without any repo name or subtree but ends with a slash (excluding branch), like GH/ORG/, the package name will be used as the repo name
+    #mirror: URL/Path to download the package
+    #   * Optional when build is available
+    #   * You may specify the exact URL to download the package
+    #   * You may specify a local file path to get the package
+    #   * You can use acu repo to download the package (for example from github release or pacman)
+    #host: Optional, set which host machine to be used for handling this package
+
+	name: linux-aarch64-rockchip-bsp5.10-radxa
+	source: mirror
+    build: GH/1usOS/PKGBUILDs:rockchip
+	mirror: https://example.com/packages/linux-aarch64-rockchip-bsp5.10-radxa.pkg.tar.zst
+
+	name: linux-firmware-armbian-git
+	source: auto
+    build: GH/7Ji-PKGBUILDs/
+	mirror: https://example.com/packages/linux-firmware-armbian-git.pkg.tar.zst
+
+	name: yay-git
+    build: AUR/yay-git
+
+	name: yay-bin
+    mirror: https://example.com/packages/yay-bin.pkg.tar.zst
+
+	name: linux-firmware-joshua-git
+	source: disabled
+    build: GH/7Ji-PKGBUILDs/
+	mirror: https://example.com/packages/linux-firmware-joshua-git.pkg.tar.zst
+
+    name: linux-firmware-joshua-git
+	source: hold
+    build: GH/7Ji-PKGBUILDs/
+	mirror: https://example.com/packages/linux-firmware-joshua-git.pkg.tar.zst
