@@ -1,3 +1,6 @@
+# Based on alarm/extra/chromium, with Rockchip MPP support
+#   alarm/extra/chromium is based on archlinux/extra/chromium
+
 # Maintainer: Evangelos Foutras <foutrelis@archlinux.org>
 # Contributor: Pierre Schmitz <pierre@archlinux.de>
 # Contributor: Jan "heftig" Steffens <jan.steffens@gmail.com>
@@ -14,19 +17,24 @@
 
 highmem=1
 
-pkgname=chromium
-pkgver=126.0.6478.182
+_pkgname=chromium
+pkgname=${_pkgname}-mpp
+_pkgver_short=126.0.6478
+pkgver=${_pkgver_short}.182
 pkgrel=1
 _launcher_ver=8
 _manual_clone=0
 _system_clang=1
 pkgdesc="A web browser built for speed, simplicity, and security"
-arch=('x86_64')
+arch=('aarch64')
 url="https://www.chromium.org/Home"
 license=('BSD-3-Clause')
+provides=("chromium=${pkgver}" "chromedriver=${pkgver}")
+conflicts=('chromium' 'chromedriver')
 depends=('gtk3' 'nss' 'alsa-lib' 'xdg-utils' 'libxss' 'libcups' 'libgcrypt'
          'ttf-liberation' 'systemd' 'dbus' 'libpulse' 'pciutils' 'libva'
          'libffi' 'desktop-file-utils' 'hicolor-icon-theme')
+depends+=('libv4l-rkmpp')
 makedepends=('python' 'gn' 'ninja' 'clang' 'lld' 'gperf' 'nodejs' 'pipewire'
              'rust' 'qt5-base' 'qt6-base' 'java-runtime-headless' 'git')
 optdepends=('pipewire: WebRTC desktop sharing under Wayland'
@@ -361,6 +369,13 @@ package() {
   done
 
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/chromium/LICENSE"
+}
+
+post_install() {
+    echo "Tips: For EGL support, pass the flags --use-gl=angle and --use-angle=gles-egl"
+    echo "Tips: For Wayland support, pass the flag --use-cmd-decoder=passthrough"
+    echo "Tips: For panfork, pass LD_LIBRARY_PATH=/usr/lib/mali-valhall-g610/x11-wayland-gbm"
+    echo "Tips: For xwayland, pass the flag --use-cmd-decoder=passthrough"
 }
 
 # vim:set ts=2 sw=2 et:
