@@ -52,7 +52,9 @@ source=(https://commondatastorage.googleapis.com/chromium-browser-official/chrom
         use-oauth2-client-switches-as-default.patch
         0001-widevine-support-for-arm.patch
         0002-Run-blink-bindings-generation-single-threaded.patch
-        0003-Fix-eu-strip-build-for-newer-GCC.patch)
+        0003-Fix-eu-strip-build-for-newer-GCC.patch
+        git+https://github.com/JeffyCN/meta-rockchip.git
+        0004-media-sandbox-always-lookup-libv4l2-at-usr-lib-libv4.patch)
 sha256sums=('564cc8a258b16d1c6151721a2a72e43ba80642326b33aa79439bba354e686068'
             '213e50f48b67feb4441078d50b0fd431df34323be15be97c55302d3fdac4483a'
             'b3de01b7df227478687d7517f61a777450dca765756002c80c4915f271e2d961'
@@ -60,7 +62,12 @@ sha256sums=('564cc8a258b16d1c6151721a2a72e43ba80642326b33aa79439bba354e686068'
             '6de648d449159dd579e42db304aca0a36243f2ac1538f8d030473afbbc8ff475'
             '5a45799258abde6836bef7209c10935ccf4c09bdd487a008b4d37a96f9b7af58'
             '1721a7355822fa045698f613a9cda28f42cad58bfe2074e7044691f0b518c5a6'
-            '835ff938f21633abf7d5ec43be09014c8be060a919c8651dadbb2015dfef8216')
+            '835ff938f21633abf7d5ec43be09014c8be060a919c8651dadbb2015dfef8216'
+            'SKIP'
+            '2bf1f2ca68c5901a24ec4be1e1153cc418b298eeb3bf53b4cd5b3d6c61550c56')
+
+# Rockchip MPP Patches Path
+_patch=meta-rockchip/dynamic-layers/recipes-browser/chromium/chromium_${_pkgver_short}
 
 if (( _manual_clone )); then
   source[0]=fetch-chromium-release
@@ -116,11 +123,19 @@ prepare() {
   # Allow building against system libraries in official builds
   sed -i 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' \
     tools/generate_shim_headers/generate_shim_headers.py
-
+  
   # Arch Linux ARM fixes
   patch -p1 -i ../0001-widevine-support-for-arm.patch
   patch -p1 -i ../0002-Run-blink-bindings-generation-single-threaded.patch
   patch -p1 -i ../0003-Fix-eu-strip-build-for-newer-GCC.patch
+
+  # Rockchip MPP Patches
+  for p in ../${_patch}/*.patch; do
+    echo "Custom Patching with ${p}"
+    patch -p1 -N -i $p || true
+  done
+  # libv4l2 fix for Arch Linux
+  patch -p1 -i ../0004-media-sandbox-always-lookup-libv4l2-at-usr-lib-libv4.patch
 
   if [[ $CARCH == "armv7h" ]]; then
     export ALARM_NINJA_JOBS="4"
@@ -264,6 +279,12 @@ build() {
   if [[ $CARCH == "armv7h" ]]; then
     _flags+=('use_thin_lto=false')
   fi
+
+  _flags+=(
+    'use_v4l2_codec=true'
+    'use_v4lplugin=true'
+    'use_linux_v4l2_only=true'
+  )
 
   # Facilitate deterministic builds (taken from build/config/compiler/BUILD.gn)
   CFLAGS+='   -Wno-builtin-macro-redefined'
