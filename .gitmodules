@@ -1,0 +1,71 @@
+# Joshua-Riek
+[submodule "linux-aarch64-rockchip-bsp5.10-joshua-git"]
+	path = linux-aarch64-rockchip-bsp5.10-joshua-git
+	url = https://github.com/7Ji-PKGBUILDs/linux-aarch64-rockchip-bsp5.10-joshua-git.git
+	branch = master
+[submodule "linux-aarch64-rockchip-bsp6.1-joshua-git"]
+	path = linux-aarch64-rockchip-bsp6.1-joshua-git
+	url = https://github.com/7Ji-PKGBUILDs/linux-aarch64-rockchip-bsp6.1-joshua-git.git
+	branch = master
+[submodule "linux-aarch64-rockchip-joshua-git"]
+	path = linux-aarch64-rockchip-joshua-git
+	url = https://github.com/7Ji-PKGBUILDs/linux-aarch64-rockchip-joshua-git.git
+	branch = master
+[submodule "linux-firmware-joshua-git"]
+	path = linux-firmware-joshua-git
+	url = https://github.com/7Ji-PKGBUILDs/linux-firmware-joshua-git.git
+	branch = master
+
+# Armbian
+[submodule "linux-aarch64-rockchip-armbian-git"]
+	path = linux-aarch64-rockchip-armbian-git
+	url = https://github.com/7Ji-PKGBUILDs/linux-aarch64-rockchip-armbian-git.git
+	branch = master
+[submodule "linux-firmware-armbian-git"]
+	path = linux-firmware-armbian-git
+	url = https://github.com/7Ji-PKGBUILDs/linux-firmware-armbian-git.git
+	branch = master
+
+# Mesa Panfork
+[submodule "mesa-panfork-git"]
+	path = mesa-panfork-git
+	url = https://github.com/7Ji-PKGBUILDs/mesa-panfork-git.git
+	branch = master
+[submodule "mali-valhall-g610-firmware"]
+	path = mali-valhall-g610-firmware
+	url = https://github.com/7Ji-PKGBUILDs/mali-valhall-g610-firmware.git
+	branch = master
+[submodule "libmali-valhall-g610"]
+	path = libmali-valhall-g610
+	url = https://github.com/7Ji-PKGBUILDs/libmali-valhall-g610.git
+	branch = master
+[submodule "dri2to3-git"]
+	path = dri2to3-git
+	url = https://github.com/7Ji-PKGBUILDs/dri2to3-git.git
+	branch = master
+
+# Rockchip MPP
+[submodule "mpp-git"]
+	path = mpp-git
+	url = https://github.com/7Ji-PKGBUILDs/mpp-git.git
+	branch = master
+[submodule "librga-multi"]
+	path = librga-multi
+	url = https://github.com/7Ji-PKGBUILDs/librga-multi.git
+	branch = master
+[submodule "ffmpeg-mpp-git"]
+	path = ffmpeg-mpp-git
+	url = https://github.com/7Ji-PKGBUILDs/ffmpeg-mpp-git.git
+	branch = master
+[submodule "libv4l-rkmpp-git"]
+	path = libv4l-rkmpp-git
+	url = https://github.com/7Ji-PKGBUILDs/libv4l-rkmpp-git.git
+	branch = master
+[submodule "v4l-utils-mpp"]
+	path = v4l-utils-mpp
+	url = https://github.com/7Ji-PKGBUILDs/v4l-utils-mpp.git
+	branch = master
+[submodule "kodi-mpp-git"]
+	path = kodi-mpp-git
+	url = https://github.com/7Ji-PKGBUILDs/kodi-mpp-git.git
+	branch = master
