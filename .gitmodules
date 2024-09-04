@@ -26,6 +26,12 @@
 	url = https://github.com/7Ji-PKGBUILDs/linux-firmware-armbian-git.git
 	branch = master
 
+# FydeTab
+[submodule "linux-aarch64-rockchip-bsp6.1-fydetab-git"]
+	path = linux-aarch64-rockchip-bsp6.1-fydetab-git
+	url = https://github.com/7Ji-PKGBUILDs/linux-aarch64-rockchip-bsp6.1-fydetab-git.git
+	branch = master
+
 # Mesa Panfork
 [submodule "mesa-panfork-git"]
 	path = mesa-panfork-git
