@@ -8,3 +8,8 @@
 	path = gl4es-git
 	url = https://github.com/7Ji-PKGBUILDs/gl4es-git.git
 	branch = master
+# Box64
+[submodule "box64-git"]
+	path = box64-git
+	url = https://aur.archlinux.org/box64-git.git
+	branch = master
