@@ -14,10 +14,7 @@ pkgbuilds:
     branch: misc
     subtree: /
   # GitWeb Download Agent
-  gitweb-dlagent:
-    url: GH/1usOS/PKGBUILDs
-    branch: misc
-    subtree: /
+  gitweb-dlagent: GH/7Ji-PKGBUILDs/
   # ARB
   arb:
     url: GH/1usOS/PKGBUILDs
@@ -39,12 +36,6 @@ pkgbuilds:
     branch: misc
     subtree: /
   # GL4ES
-  gl4es-git:
-    url: GH/1usOS/PKGBUILDs
-    branch: misc
-    subtree: /
+  gl4es-git: GH/7Ji-PKGBUILDs/
   # Box64
-  box64-git:
-    url: GH/1usOS/PKGBUILDs
-    branch: misc
-    subtree: /
+  box64-git: AUR
