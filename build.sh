@@ -43,19 +43,15 @@ fi
 
 if [ -n "$1" ]; then
     colorecho "$BLUE" "Building packages for $1 ..."
-    sudo ./arb "../$1.yaml"
+    sudo ./arb "../$1/build.yaml"
     if [ -n "$2" ]; then
         repo_name="$2"
     else
         repo_name="$1"
     fi
 else
-    arbconfig=($(ls ../ | grep .yaml))
-    for ((i = 0; i < ${#arbconfig[@]}; i++)); do
-        colorecho "$BLUE" "Building packages for ${arbconfig[i]} ..."
-        sudo ./arb "../${arbconfig[i]}"
-    done
-    repo_name="experimental"
+    colorecho "$RED" "Error: You must specify a repository to build"
+    exit 1
 fi
 
 colorecho "$BLUE" "Copying new packages to repository ($repo_name) ..."
@@ -73,10 +69,14 @@ for ((i = 0; i < ${#pkg[@]}; i++)); do
         echo "${pkg[i]} already signed, skipping ..."
     else
         echo "Signing ${pkg[i]} ..."
-        gpg --detach-sign --no-armor ${pkg[i]}
+        if [ -z "$gpgpass" ]; then
+            gpg --detach-sign --no-armor ${pkg[i]}
+        else
+            gpg --batch --passphrase "$gpgpass" --detach-sign --no-armor ${pkg[i]}
+        fi
     fi
 done
 
-repo-add -s -v -n ${repo_name}.db.tar.xz *.pkg.tar.xz
+#repo-add -s -v -n ${repo_name}.db.tar.xz *.pkg.tar.xz
 #repo-add -s -v -n ${repo_name}.db.tar.xz *.pkg.tar.zst
 sudo rm -rf *db*.old *db*.old.*

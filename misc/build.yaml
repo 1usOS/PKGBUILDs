@@ -1,0 +1,50 @@
+# Format of this file is documented at https://github.com/7Ji/arch_repo_builder#config
+dephash_strategy: strict
+basepkgs: [base-devel, bc, distcc, ccache]
+home_binds: [.cache/ccache, .config/ccache]
+pkgbuilds:
+  # ACU
+  acu:
+    url: GH/1usOS/PKGBUILDs
+    branch: misc
+    subtree: /
+  # AGR
+  agr:
+    url: GH/1usOS/PKGBUILDs
+    branch: misc
+    subtree: /
+  # GitWeb Download Agent
+  gitweb-dlagent:
+    url: GH/1usOS/PKGBUILDs
+    branch: misc
+    subtree: /
+  # ARB
+  arb:
+    url: GH/1usOS/PKGBUILDs
+    branch: misc
+    subtree: /
+  # Arch Linux ARM Mirrorlist
+  pacman-mirrorlist:
+    url: GH/1usOS/PKGBUILDs
+    branch: misc
+    subtree: /
+  # Rate Mirrors
+  rate-mirrors:
+    url: GH/1usOS/PKGBUILDs
+    branch: misc
+    subtree: /
+  # Grub
+  grub:
+    url: GH/1usOS/PKGBUILDs
+    branch: misc
+    subtree: /
+  # GL4ES
+  gl4es-git:
+    url: GH/1usOS/PKGBUILDs
+    branch: misc
+    subtree: /
+  # Box64
+  box64-git:
+    url: GH/1usOS/PKGBUILDs
+    branch: misc
+    subtree: /

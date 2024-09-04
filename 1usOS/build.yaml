@@ -1,0 +1,15 @@
+# Format of this file is documented at https://github.com/7Ji/arch_repo_builder#config
+dephash_strategy: strict
+basepkgs: [base-devel, bc, distcc, ccache]
+home_binds: [.cache/ccache, .config/ccache]
+pkgbuilds:
+  # 1usOS Release
+  1usos-release:
+    url: GH/1usOS/PKGBUILDs
+    branch: 1usOS
+    subtree: /
+  # 1usOS Keyring
+  1usos-keyring:
+    url: GH/1usOS/PKGBUILDs
+    branch: 1usOS
+    subtree: /
