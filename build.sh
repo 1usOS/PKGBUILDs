@@ -26,7 +26,7 @@ colorecho "$GREEN" "System is $system_arch"
 mkdir -p build
 cd build
 
-if [ ! -f "arb" ]; then
+if [ ! -f "arb" ] && [ ! $(command -v arb) ]; then
     if [ "$system_arch" == "aarch64" ] || [ "$system_arch" == "arm64" ] || [ "$system_arch" == "armv8" ]; then
         curl -LJO https://github.com/kwankiu/PKGBUILDs/releases/download/arb/arb-aarch64
         mv arb-aarch64 arb
