@@ -1,4 +1,4 @@
-name: Upload repository to GitHub Release (AArch64)
+name: Upload repository to GitHub Release (x86_64)
 
 # Controls when the workflow will run
 on:
@@ -32,20 +32,12 @@ jobs:
           # List of all assets download URL
           assets_url_list="$(curl -s "$release_url" | sed -n 's/.*"browser_download_url": "\(.*\)".*/\1/p')"
           # Filter for target architecture
-          assets_url_list="$(echo "$assets_url_list" | grep .aarch64.xz)"
+          assets_url_list="$(echo "$assets_url_list" | grep .x86_64.xz)"
 
           # Download repositories - 1usOS
           curl -LO "$(echo "$assets_url_list" | grep 1usOS_ | tail -n 1)"
-          # Download repositories - asahi
-          curl -LO "$(echo "$assets_url_list" | grep asahi_ | tail -n 1)"
           # Download repositories - misc
           curl -LO "$(echo "$assets_url_list" | grep misc_ | tail -n 1)"
-          # Download repositories - multilib
-          curl -LO "$(echo "$assets_url_list" | grep multilib_ | tail -n 1)"
-          # Download repositories - raspberrypi
-          curl -LO "$(echo "$assets_url_list" | grep raspberrypi_ | tail -n 1)"
-          # Download repositories - rockchip
-          curl -LO "$(echo "$assets_url_list" | grep rockchip_ | tail -n 1)"
 
       - name: Extract repository archives
         run: |
@@ -62,7 +54,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
             artifacts: "output/*"
-            tag: "aarch64"
+            tag: "x86_64"
             makeLatest: false
             allowUpdates: true
             removeArtifacts: true
