@@ -46,6 +46,8 @@ Server = http://mirror.archlinuxarm.org/$arch/$repo
 # Server = http://de5.mirror.archlinuxarm.org/$arch/$repo
 ## xTom (Web Hosting)
 # Server = https://mirrors.xtom.de/archlinux-arm/$arch/$repo
+## Halifax dormitory of RWTH Aachen University
+# Server = https://ftp.halifax.rwth-aachen.de/archlinux-arm/$arch/$repo
 
 ### Greece
 ## Athens
