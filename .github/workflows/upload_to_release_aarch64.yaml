@@ -1,0 +1,53 @@
+name: Upload repository to GitHub Release (AArch64)
+
+# Controls when the workflow will run
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+  # Run the workflow every Night at 00:00 UTC
+  schedule:
+    - cron: "0 0 * * *"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+      # Runs a set of commands using the runners shell
+      - name: Download repository archives
+        uses: robinraju/release-downloader@v1
+        with:
+          tag: 'archive'
+          fileName: '*.tar.xz'
+
+      - name: Extract repository archives
+        run: |
+          output_folder="output"
+          mkdir -p "$output_folder"
+          for archive in *.tar.xz; do
+              if [[ -f $archive ]]; then
+                  echo "Extracting $archive to $output_folder"
+                  tar -xJf "$archive" --strip-components=1 -C "$output_folder"
+              fi
+          done
+
+      - name: Upload to GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+            artifacts: "output/*"
+            tag: "aarch64"
+            makeLatest: false
+            allowUpdates: true
+            removeArtifacts: true
+            omitBody: true
