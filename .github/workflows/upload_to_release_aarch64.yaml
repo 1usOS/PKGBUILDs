@@ -3,8 +3,8 @@ name: Upload repository to GitHub Release (AArch64)
 # Controls when the workflow will run
 on:
   # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+  #push:
+  #  branches: ["main"]
   # Run the workflow every Night at 00:00 UTC
   schedule:
     - cron: "0 0 * * *"
