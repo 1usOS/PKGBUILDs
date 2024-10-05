@@ -1,0 +1,26 @@
+# Maintainer: Hector Martin <marcan@marcan.st>
+
+_name=asahi-installer
+pkgname=asahi-fwextract
+pkgver=0.7.8
+pkgrel=1
+pkgdesc='Asahi Linux firmware extractor'
+arch=('any')
+url='http://asahilinux.org'
+license=('MIT')
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/AsahiLinux/${_name}/archive/refs/tags/v${pkgver}.tar.gz")
+install=asahi-fwextract.install
+sha256sums=('e8c0e379ad4280812b63ed5d79a4b874f9093a1726679cfdbfc5c05c1061c685')
+b2sums=('5d201cdcae6e02ec0288188911bd54f4a9e565342ce195c851d31def448792fedb13766961ca3d3e256973240f3ea2cd1565cd532d2a42208f22bf5710f38022')
+depends=(python "asahi-scripts>=20240822-1" lzfse)
+makedepends=(python-build python-installer python-wheel python-setuptools)
+
+build() {
+    cd "$_name-$pkgver"
+    python -m build --wheel --no-isolation
+}
+
+package() {
+    cd "$_name-$pkgver"
+    python -m installer --destdir="$pkgdir" dist/*.whl
+}
