@@ -18,7 +18,7 @@ pkgbuilds:
     url: GH/1usOS/PKGBUILDs
     branch: asahi
     subtree: /
-    makedeps: [spirv-llvm-translator, python-packaging]
+  # makedeps: [spirv-llvm-translator, python-packaging, python-yaml]
   # Linux Kernel for Asahi (Apple Silicon)
   linux-asahi:
     url: GH/1usOS/PKGBUILDs
