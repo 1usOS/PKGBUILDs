@@ -6,7 +6,7 @@
 
 highmem=1
 
-_suffix=-asahi-edge
+_suffix=-asahi
 
 pkgbase=mesa$_suffix
 pkgname=(
