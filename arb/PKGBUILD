@@ -11,7 +11,7 @@ options=(!lto)
 source=("git+${url}.git"
         "0001-fix-alpm-aarch64-issue.patch")
 sha256sums=('SKIP'
-            '6c5803bdbad33f1134641a8335bec61ca4d87c708dd5ceef6e68f0f2e295b459')
+            'a8afdb9c5c787761daf0c89f5393c7ab9efa5a4c02e29ddcef76bdd92e389c48')
 depends=('gcc-libs' 'bc' 'git')
 makedepends=('cargo' 'rust-bindgen')
 

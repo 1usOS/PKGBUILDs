@@ -6,8 +6,8 @@ index 32cacb3..71a9ac0 100644
  # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
  
  [dependencies]
--alpm = "3.0"
-+alpm = { version = "3.0", features = [ "generate" ] }
+-alpm = "4.0"
++alpm = { version = "4.0", features = [ "generate" ] }
  blake2 = "0.10"
  crc = "3"
  env_logger = "0.10"
