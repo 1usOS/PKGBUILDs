@@ -3,17 +3,6 @@ dephash_strategy: strict
 basepkgs: [base-devel, bc, distcc, ccache, rust, rust-bindgen]
 home_binds: [.cache/ccache, .config/ccache]
 pkgbuilds:
-  # Mesa for Asahi (Apple Silicon)
-  mesa-asahi-edge:
-    url: GH/1usOS/PKGBUILDs
-    branch: asahi
-    subtree: /
-    makedeps: [spirv-llvm-translator, python-packaging]
-  # Linux Kernel for Asahi (Apple Silicon)
-  linux-asahi:
-    url: GH/1usOS/PKGBUILDs
-    branch: asahi
-    subtree: /
   # m1n1 bootloader for Asahi (Apple Silicon)
   m1n1:
     url: GH/1usOS/PKGBUILDs
@@ -24,4 +13,29 @@ pkgbuilds:
     url: GH/1usOS/PKGBUILDs
     branch: asahi
     subtree: /
-
+  # Mesa for Asahi (Apple Silicon)
+  mesa-asahi:
+    url: GH/1usOS/PKGBUILDs
+    branch: asahi
+    subtree: /
+    makedeps: [spirv-llvm-translator, python-packaging]
+  # Linux Kernel for Asahi (Apple Silicon)
+  linux-asahi:
+    url: GH/1usOS/PKGBUILDs
+    branch: asahi
+    subtree: /
+  # misc configs for Asahi (Apple Silicon)
+  asahi-configs:
+    url: GH/1usOS/PKGBUILDs
+    branch: asahi
+    subtree: /
+  # maintenance scripts for Asahi (Apple Silicon)
+  asahi-scripts:
+    url: GH/1usOS/PKGBUILDs
+    branch: asahi
+    subtree: /
+  # firmware extractor for Asahi (Apple Silicon)
+  asahi-fwextract:
+    url: GH/1usOS/PKGBUILDs
+    branch: asahi
+    subtree: /
