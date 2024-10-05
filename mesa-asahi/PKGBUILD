@@ -10,7 +10,7 @@ _suffix=-asahi
 
 pkgbase=mesa$_suffix
 pkgname=(
-	"vulkan-swrast$_suffix"
+	"vulkan$_suffix"
 	"mesa$_suffix"
 )
 pkgdesc="An open-source implementation of the OpenGL specification"
@@ -22,7 +22,7 @@ arch=('aarch64')
 makedepends=('python-mako' 'libxml2' 'libx11' 'xorgproto' 'libdrm' 'libxshmfence' 'libxxf86vm'
              'libxdamage' 'libvdpau' 'libva' 'wayland' 'wayland-protocols' 'zstd' 'elfutils' 'llvm' 'spirv-llvm-translator'
              'libomxil-bellagio' 'libclc' 'clang' 'libglvnd' 'libunwind' 'lm_sensors' 'libxrandr'
-             'systemd' 'valgrind' 'glslang' 'vulkan-icd-loader' 'directx-headers' 'cmake' 'meson' 'python-pycparser')
+             'systemd' 'valgrind' 'glslang' 'vulkan-icd-loader' 'directx-headers' 'cmake' 'meson' 'python-pycparser' 'python-packaging' 'python-yaml')
 url="https://www.mesa3d.org/"
 license=('custom')
 options=('debug' '!lto')
@@ -45,10 +45,8 @@ build() {
     -D b_ndebug=false \
     -D b_lto=false \
     -D platforms=x11,wayland \
-    -D gallium-drivers=swrast,virgl,kmsro,asahi \
-    -D vulkan-drivers=swrast \
-    -D vulkan-layers= \
-    -D dri3=enabled \
+    -D gallium-drivers=swrast,virgl,asahi,zink \
+    -D vulkan-drivers=swrast,asahi \
     -D egl=enabled \
     -D gallium-extra-hud=true \
     -D gallium-opencl=icd \
@@ -93,16 +91,17 @@ _install() {
   done
 }
 
-_package_vulkan-swrast() {
-  pkgdesc="Vulkan software rasteriser driver"
+_package_vulkan() {
+  pkgdesc="Vulkan asahi driver"
   depends=('wayland' 'libx11' 'libxshmfence' 'libdrm' 'zstd' 'llvm-libs' 'systemd-libs' 'libunwind')
   optdepends=('vulkan-mesa-layers: additional vulkan layers')
   conflicts=('vulkan-mesa' 'vulkan-swrast')
   replaces=('vulkan-mesa')
   provides=('vulkan-driver' 'vulkan-swrast')
 
-  _install fakeinstall/usr/share/vulkan/icd.d/lvp_icd*.json
-  _install fakeinstall/usr/lib/libvulkan_lvp.so
+  _install fakeinstall/usr/share/vulkan
+  _install fakeinstall/usr/lib/libvulkan*
+  _install fakeinstall/usr/lib/libgallium*
 
   install -m644 -Dt "${pkgdir}/usr/share/licenses/${pkgname}" LICENSE
 }
@@ -120,9 +119,8 @@ _package_mesa() {
   _install fakeinstall/usr/share/drirc.d/00-mesa-defaults.conf
   _install fakeinstall/usr/share/glvnd/egl_vendor.d/50_mesa.json
 
-  # ati-dri, nouveau-dri, intel-dri, svga-dri, swrast, swr
-  _install fakeinstall/usr/lib/dri/*_dri.so
-  _install fakeinstall/usr/lib/dri/*_video.so
+  #install libs
+  _install fakeinstall/usr/lib/dri/*.so
   _install fakeinstall/usr/lib/vdpau
   _install fakeinstall/usr/lib/gallium-pipe
 
@@ -138,8 +136,8 @@ _package_mesa() {
   _install fakeinstall/etc
 
   # libglvnd support
-  _install fakeinstall/usr/lib/libGLX_mesa.so*
-  _install fakeinstall/usr/lib/libEGL_mesa.so*
+  _install fakeinstall/usr/lib/libGL*
+  _install fakeinstall/usr/lib/libEG*
 
   # indirect rendering
   ln -s /usr/lib/libGLX_mesa.so.0 "${pkgdir}/usr/lib/libGLX_indirect.so.0"
