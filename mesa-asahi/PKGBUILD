@@ -45,8 +45,8 @@ build() {
     -D b_ndebug=false \
     -D b_lto=false \
     -D platforms=x11,wayland \
-    -D gallium-drivers=swrast,virgl,asahi,svga,zink \
-    -D vulkan-drivers=swrast \
+    -D gallium-drivers=swrast,virgl,asahi,zink \
+    -D vulkan-drivers=swrast,asahi \
     -D egl=enabled \
     -D vulkan-layers= \
     -D gallium-extra-hud=true \
