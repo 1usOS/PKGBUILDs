@@ -1,0 +1,25 @@
+# Maintainer: Hector Martin <marcan@marcan.st>
+
+pkgname=asahi-audio
+pkgver=2.3
+pkgrel=1
+pkgdesc='Linux Userspace Audio Configuration'
+arch=('aarch64')
+url='http://asahilinux.org'
+license=('MIT')
+makedepends=(wireplumber pipewire)
+depends=('wireplumber>=0.4.16' pipewire bankstown 'lsp-plugins-lv2>=1.2.15' speakersafetyd)
+source=(
+  "$pkgname-${pkgver}.tar.gz::https://github.com/AsahiLinux/$pkgname/archive/refs/tags/v${pkgver}.tar.gz"
+)
+sha256sums=('8131ab45553e8d19a42ee4d0d59730a60d502b05bbfa6ab96519e7ec79b64380')
+
+build() {
+  cd "${srcdir}/$pkgname-${pkgver}"
+  make
+}
+
+package() {
+  cd "${srcdir}/$pkgname-${pkgver}"
+  make DESTDIR="${pkgdir}" install
+}
