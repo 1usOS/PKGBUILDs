@@ -1,5 +1,5 @@
 pkgname=tiny-dfr
-pkgver=0.3.1
+pkgver=0.3.2
 pkgrel=1
 pkgdesc="The most basic dynamic function row daemon possible"
 arch=('aarch64' 'x86_64')
@@ -10,7 +10,7 @@ source=(
   "$pkgname-$pkgver.tar.gz::https://github.com/WhatAmISupposedToPutHere/tiny-dfr/archive/refs/tags/v${pkgver}.tar.gz"
 )
 sha256sums=(
-  'fe19b62208b52059a38291e5852b87096051de01123a55413326178d847ff279'
+  'a70128dd04bc1dfba778f3756a89a3c36eb398c0d0f1604e0b47f8ef62b8d4af'
 )
 
 prepare() {
