@@ -1,0 +1,31 @@
+# Repository Configuration
+# Mirror
+packages:
+  #Panfrost Graphics
+  dri2to3-git: GH/7Ji/archrepo/aarch64
+  libmali-valhall-g610: GH/7Ji/archrepo/aarch64
+  mali-valhall-g610-firmware: GH/7Ji/archrepo/aarch64
+  mesa-panfork-git: GH/7Ji/archrepo/aarch64
+  mesa-panvk-git: GH/7Ji/archrepo/aarch64
+  #Rockchip MPP
+  librga-multi: GH/7Ji/archrepo/aarch64
+  mpp-git: GH/7Ji/archrepo/aarch64
+  v4l-utils-mpp: GH/7Ji/archrepo/aarch64
+  libv4l-rkmpp-git: GH/7Ji/archrepo/aarch64
+  ffmpeg-mpp-git: GH/7Ji/archrepo/aarch64
+  chromium-mpp: GH/7Ji/archrepo/aarch64
+  kodi-mpp-git: GH/7Ji/archrepo/aarch64
+  #Joshua Riek Kernel
+  linux-aarch64-rockchip-bsp5.10-joshua-git: GH/7Ji/archrepo/aarch64
+  linux-aarch64-rockchip-bsp6.1-joshua-git: GH/7Ji/archrepo/aarch64
+  linux-aarch64-rockchip-joshua-git: GH/7Ji/archrepo/aarch64
+  linux-firmware-joshua-git: GH/7Ji/archrepo/aarch64
+  #Radxa Kernel
+  linux-aarch64-rockchip-bsp5.10-radxa-git: GH/7Ji/archrepo/aarch64
+  #linux-aarch64-rockchip-bsp6.1-radxa
+  # Armbian Kernel
+  #linux-aarch64-rockchip-bsp6.1-armbian-git
+  #linux-aarch64-rockchip-armbian-git
+  #linux-firmware-armbian-git
+  # FydeTab Kernel
+  linux-aarch64-rockchip-bsp6.1-fydetab-git: GH/7Ji/archrepo/aarch64
