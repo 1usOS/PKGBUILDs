@@ -1,13 +1,9 @@
+# Repository Configuration
 # Format of this file is documented at https://github.com/7Ji/arch_repo_builder#config
 dephash_strategy: strict
 basepkgs: [base-devel, bc, distcc, ccache]
 home_binds: [.cache/ccache, .config/ccache]
 pkgbuilds:
-  # Radxa Rockchip BSP5.10 Kernel
-  linux-aarch64-rockchip-bsp5.10-radxa:
-    url: GH/1usOS/PKGBUILDs
-    branch: rockchip
-    subtree: /
   # Radxa Rockchip BSP6.1 Kernel
   linux-aarch64-rockchip-bsp6.1-radxa:
     url: GH/1usOS/PKGBUILDs
@@ -18,8 +14,6 @@ pkgbuilds:
     url: GH/1usOS/PKGBUILDs
     branch: rockchip
     subtree: /
-  # FydeTab Rockchip BSP6.1 Kernel
-  linux-aarch64-rockchip-bsp6.1-fydetab-git: GH/7Ji-PKGBUILDs/
   # Armbian Rockchip 6.10 Kernel
   linux-aarch64-rockchip-armbian-git: GH/7Ji-PKGBUILDs/
   # Armbian firmware for Wireless

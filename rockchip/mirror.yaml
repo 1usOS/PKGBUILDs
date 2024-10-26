@@ -15,6 +15,7 @@ packages:
   ffmpeg-mpp-git: GH/7Ji/archrepo/aarch64
   chromium-mpp: GH/7Ji/archrepo/aarch64
   kodi-mpp-git: GH/7Ji/archrepo/aarch64
+  #sunshine-mpp-git: GH/7Ji/archrepo/aarch64
   #Joshua Riek Kernel
   linux-aarch64-rockchip-bsp5.10-joshua-git: GH/7Ji/archrepo/aarch64
   linux-aarch64-rockchip-bsp6.1-joshua-git: GH/7Ji/archrepo/aarch64
@@ -22,10 +23,10 @@ packages:
   linux-firmware-joshua-git: GH/7Ji/archrepo/aarch64
   #Radxa Kernel
   linux-aarch64-rockchip-bsp5.10-radxa-git: GH/7Ji/archrepo/aarch64
-  #linux-aarch64-rockchip-bsp6.1-radxa
+  #linux-aarch64-rockchip-bsp6.1-radxa-git: GH/1usOS/PKGBUILDs/aarch64
   # Armbian Kernel
-  #linux-aarch64-rockchip-bsp6.1-armbian-git
-  #linux-aarch64-rockchip-armbian-git
-  #linux-firmware-armbian-git
+  #linux-aarch64-rockchip-bsp6.1-armbian-git: GH/1usOS/PKGBUILDs/aarch64
+  #linux-aarch64-rockchip-armbian-git: GH/7Ji/archrepo/aarch64
+  #linux-firmware-armbian-git: GH/1usOS/PKGBUILDs/aarch64
   # FydeTab Kernel
   linux-aarch64-rockchip-bsp6.1-fydetab-git: GH/7Ji/archrepo/aarch64
