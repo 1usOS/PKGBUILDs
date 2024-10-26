@@ -35,8 +35,40 @@ pkgbuilds:
     url: GH/1usOS/PKGBUILDs
     branch: asahi
     subtree: /
+  # LZFSE compression library and command line tool
+  lzfse:
+    url: GH/1usOS/PKGBUILDs
+    branch: asahi
+    subtree: /
   # firmware extractor for Asahi (Apple Silicon)
   asahi-fwextract:
+    url: GH/1usOS/PKGBUILDs
+    branch: asahi
+    subtree: /
+  # localdeps: [lzfse]
+  # alsa ucm configuration (and topologies) for Asahi (Apple Silicon)
+  alsa-ucm-conf-asahi:
+    url: GH/1usOS/PKGBUILDs
+    branch: asahi
+    subtree: /
+  # a barebones bass enhancer for Asahi (Apple Silicon)
+  bankstown:
+    url: GH/1usOS/PKGBUILDs
+    branch: asahi
+    subtree: /
+  # speaker safety daemon for Asahi (Apple Silicon)
+  speakersafetyd:
+    url: GH/1usOS/PKGBUILDs
+    branch: asahi
+    subtree: /
+  # audio configuration for Asahi (Apple Silicon)
+  asahi-audio:
+    url: GH/1usOS/PKGBUILDs
+    branch: asahi
+    subtree: /
+  # localdeps: [bankstown, speakersafetyd]
+  # touch bar daemon for Asahi (Apple Silicon) & T2Linux (Intel Mac)
+  tiny-dfr:
     url: GH/1usOS/PKGBUILDs
     branch: asahi
     subtree: /
