@@ -1,4 +1,4 @@
-# Repository Configuration
+# Repository Configuration - Build
 # Format of this file is documented at https://github.com/7Ji/arch_repo_builder#config
 dephash_strategy: strict
 basepkgs: [base-devel, bc, distcc, ccache]

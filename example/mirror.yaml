@@ -1,0 +1,9 @@
+# Example of Repository Configuration - Mirror
+packages:
+  # Mirror from GitHub Release
+  # This example download packages that starts with the keyword chromium-mpp from https://github.com/7Ji/archrepo/releases/tag/aarch64
+  chromium-mpp: GH/7Ji/archrepo/aarch64
+  # Mirror from HTTP Server
+  # This example download packages that starts with the keyword neofetch from http://mirror.archlinuxarm.org/aarch64/extra
+  # Note: DO NOT put a slash at the end of the url
+  neofetch: http://mirror.archlinuxarm.org/aarch64/extra

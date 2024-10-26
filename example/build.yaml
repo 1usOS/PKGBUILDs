@@ -1,0 +1,22 @@
+# Example of Repository Configuration - Build
+# Format of this file is documented at https://github.com/7Ji/arch_repo_builder#config
+dephash_strategy: strict
+basepkgs: [base-devel, bc, distcc, ccache]
+home_binds: [.cache/ccache, .config/ccache]
+pkgbuilds:
+  # PKGBUILD from Arch User Repository (AUR)
+  # This example clones from https://aur.archlinux.org/yay-git.git
+  yay-git: AUR
+  # PKGBUILD from GitHub Repository
+  # This example clones from the master branch of https://github.com/7Ji-PKGBUILDs/7ji-keyring
+  7ji-keyring: GH/7Ji-PKGBUILDs/
+  # PKGBUILD from GitHub Repository with options
+  # This example clones from the master branch of https://github.com/hbiyik/agrrepo and use the PKGBUILD located in the subdirectory mesa of the cloned repository
+  mesa-panvk-git:
+    url: GH/hbiyik/agrrepo
+    subtree: mesa/
+  # PKGBUILD from other git repositories
+  # This example clones from the main branch of https://gitlab.archlinux.org/archlinux/packaging/packages/linux-firmware
+  linux-firmware:
+    url: https://gitlab.archlinux.org/archlinux/packaging/packages/linux-firmware.git
+    branch: main

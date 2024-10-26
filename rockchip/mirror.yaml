@@ -1,5 +1,4 @@
-# Repository Configuration
-# Mirror
+# Repository Configuration - Mirror
 packages:
   #Panfrost Graphics
   dri2to3-git: GH/7Ji/archrepo/aarch64
