@@ -1,0 +1,8 @@
+# Repository Configuration - Mirror
+packages:
+  # ARM32 System
+  arm32: https://repo.bredos.org/repo/BredOS-multilib/aarch64
+  # 32-bit Libraries
+  lib32: https://repo.bredos.org/repo/BredOS-multilib/aarch64
+  # Steam
+  steam: https://repo.bredos.org/repo/BredOS-multilib/aarch64
