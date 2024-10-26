@@ -1,17 +1,17 @@
 # Repository Configuration - Mirror
 packages:
-  #Raspberry Pi Kernel
+  # Raspberry Pi Kernel
   linux-rpi: http://mirror.archlinuxarm.org/aarch64/core
-  #Raspberry Pi VPU
+  # Raspberry Pi VPU
   ffmpeg-rpi: http://mirror.archlinuxarm.org/aarch64/alarm
   kodi-rpi: http://mirror.archlinuxarm.org/aarch64/alarm
   vlc-rpi: http://mirror.archlinuxarm.org/aarch64/alarm
-  #Raspberry Pi Bootloader
+  # Raspberry Pi Bootloader
   uboot-raspberrypi: http://mirror.archlinuxarm.org/aarch64/alarm
   raspberrypi-bootloader: http://mirror.archlinuxarm.org/aarch64/alarm
   rpi4-eeprom: http://mirror.archlinuxarm.org/aarch64/alarm
   rpi5-eeprom: http://mirror.archlinuxarm.org/aarch64/alarm
-  #Raspberry Pi Firmware
+  # Raspberry Pi Firmware
   firmware-raspberrypi: http://mirror.archlinuxarm.org/aarch64/alarm
   raspberrypi-utils: http://mirror.archlinuxarm.org/aarch64/alarm
   libbcm2835: http://mirror.archlinuxarm.org/aarch64/alarm
