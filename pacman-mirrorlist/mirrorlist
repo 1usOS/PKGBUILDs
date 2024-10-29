@@ -1,18 +1,43 @@
 #
 # Arch Linux ARM repository mirrorlist
-# Last updated on 2024-08-22
+# Last updated on 2024-10-29
 #
 
 ## Arch Linux ARM Mirror with load balancing
 Server = http://mirror.archlinuxarm.org/$arch/$repo
 
 ### Arch Linux ARM Mirrors by country
+### Australia
+## xTom (AU) and USTCLUG
+# Server = https://mirrors.xtom.au/archlinux-arm/$arch/$repo
+## cicku (github)
+# Server = https://au.mirrors.cicku.me/archlinuxarm/$arch/$repo
+
+### Austria
+## cicku (github)
+# Server = https://at.mirrors.cicku.me/archlinuxarm/$arch/$repo
+
+### Brazil
+## cicku (github)
+# Server = https://br.mirrors.cicku.me/archlinuxarm/$arch/$repo
+
+### Canada
+## cicku (github)
+# Server = https://ca.mirrors.cicku.me/archlinuxarm/$arch/$repo
+## University of Waterloo
+# Server = https://mirror.csclub.uwaterloo.ca/archlinuxarm/$arch/$repo
 
 ### China
 ## Tsinghua University
 # Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/$arch/$repo
+## Alibaba Cloud
+# Server = https://mirrors.aliyun.com/archlinuxarm/$arch/$repo
+## Beijing Jiaotong University
+# Server = https://mirror.bjtu.edu.cn/archlinuxarm/$arch/$repo
 ## Beijing Foreign Studies University
 # Server = https://mirrors.bfsu.edu.cn/archlinuxarm/$arch/$repo
+## Chongqing University of Posts and Telecommunications
+# Server = https://mirrors.cqupt.edu.cn/archlinuxarm/$arch/$repo
 ## University of Science and Technology of China
 # Server = https://mirrors.ustc.edu.cn/archlinuxarm/$arch/$repo
 ## Jilin University
@@ -22,17 +47,25 @@ Server = http://mirror.archlinuxarm.org/$arch/$repo
 ## Nanyang Institute of Technology
 # Server = https://mirror.nyist.edu.cn/archlinuxarm/$arch/$repo
 ## Shanghai Jiao Tong University
-# Server = https://mirrors.sjtug.sjtu.edu.cn/archlinuxarm/$arch/$repo
-## Alibaba Cloud
-# Server = https://mirrors.aliyun.com/archlinuxarm/$arch/$repo
+# Server = https://mirror.sjtu.edu.cn/archlinuxarm/$arch/$repo
 ## Tencent Cloud
 # Server = https://mirrors.cloud.tencent.com/archlinuxarm/$arch/$repo
 ## NetEase, Inc.
 # Server = https://mirrors.163.com/archlinuxarm/$arch/$repo
+## Institute of Software Chinese Academy of Sciences
+# Server = https://mirror.iscas.ac.cn/archlinuxarm/$arch/$repo
+## Lanzhou University
+# Server = https://mirror.lzu.edu.cn/archlinuxarm/$arch/$repo
+## Nanjing Tech University
+# Server = https://mirrors.njtech.edu.cn/archlinuxarm/$arch/$repo
 
 ### Denmark
 ## Aalborg
 # Server = http://dk.mirror.archlinuxarm.org/$arch/$repo
+
+### France
+## cicku (github)
+# Server = https://fr.mirrors.cicku.me/archlinuxarm/$arch/$repo
 
 ### Germany
 ## Aachen
@@ -44,10 +77,16 @@ Server = http://mirror.archlinuxarm.org/$arch/$repo
 ## Falkenstein
 # Server = http://eu.mirror.archlinuxarm.org/$arch/$repo
 # Server = http://de5.mirror.archlinuxarm.org/$arch/$repo
-## xTom (Web Hosting)
+## xTom (DE) and USTCLUG
 # Server = https://mirrors.xtom.de/archlinux-arm/$arch/$repo
 ## Halifax dormitory of RWTH Aachen University
 # Server = https://ftp.halifax.rwth-aachen.de/archlinux-arm/$arch/$repo
+## cicku (github)
+# Server = https://de.mirrors.cicku.me/archlinuxarm/$arch/$repo
+## Freien Universität Berlin
+# Server = https://ftp.spline.inf.fu-berlin.de/mirrors/archlinuxarm/$arch/$repo
+## SunRed
+# Server = https://mirror.sunred.org/archlinuxarm/$arch/$repo
 
 ### Greece
 ## Athens
@@ -57,16 +96,65 @@ Server = http://mirror.archlinuxarm.org/$arch/$repo
 ## Budapest
 # Server = http://hu.mirror.archlinuxarm.org/$arch/$repo
 
+### India
+## cicku (github)
+# Server = https://in.mirrors.cicku.me/archlinuxarm/$arch/$repo
+
+### Italy
+## cicku (github)
+# Server = https://in.mirrors.cicku.me/archlinuxarm/$arch/$repo
+
 ### Japan
 ## Tokyo
 # Server = http://jp.mirror.archlinuxarm.org/$arch/$repo
+## xTom (JP) and USTCLUG
+# Server = https://mirrors.xtom.jp/archlinux-arm/$arch/$repo
+## Cat Networks
+# Server = https://mirrors.cat.net/archlinux-arm/$arch/$repo
+## cicku (github)
+# Server = https://jp.mirrors.cicku.me/archlinuxarm/$arch/$repo
+## Jing
+# Server = https://repo.jing.rocks/archlinuxarm/$arch/$repo
+
+## Netherlands
+## cicku (github)
+# Server = https://nl.mirrors.cicku.me/archlinuxarm/$arch/$repo
+
+### Poland
+# Server = https://mirror.juniorjpdj.pl/archlinuxarm/$arch/$repo
 
 ### Russia
 ## Yandex LLC
 # Server = https://mirror.yandex.ru/archlinux-arm/$arch/$repo
+## cicku (github)
+# Server = https://ru.mirrors.cicku.me/archlinuxarm/$arch/$repo
+
+### Saudi Arabia
+## cicku (github)
+# Server = https://sa.mirrors.cicku.me/archlinuxarm/$arch/$repo
 
 ### Singapore
 # Server = http://sg.mirror.archlinuxarm.org/$arch/$repo
+## cicku (github)
+# Server = https://sg.mirrors.cicku.me/archlinuxarm/$arch/$repo
+
+### South Africa
+## cicku (github)
+# Server = https://za.mirrors.cicku.me/archlinuxarm/$arch/$repo
+
+### South Korea
+## cicku (github)
+# Server = https://kr.mirrors.cicku.me/archlinuxarm/$arch/$repo
+## Yuki Network LTD
+# Server = https://mirror.yuki.net.uk/archlinuxarm/$arch/$repo
+
+### Spain
+## cicku (github)
+# Server = https://es.mirrors.cicku.me/archlinuxarm/$arch/$repo
+
+### Switzerland
+## cicku (github)
+# Server = https://ch.mirrors.cicku.me/archlinuxarm/$arch/$repo
 
 ### Taiwan
 ## Hsinchu
@@ -75,10 +163,16 @@ Server = http://mirror.archlinuxarm.org/$arch/$repo
 # Server = http://tw.mirror.archlinuxarm.org/$arch/$repo
 ## Taiwan Digital Streaming Co.
 # Server = https://mirror.twds.com.tw/archlinuxarm/$arch/$repo
+## cicku (github)
+# Server = https://tw.mirrors.cicku.me/archlinuxarm/$arch/$repo
+## Free Software Lab
+# Server = https://free.nchc.org.tw/archlinuxarm/$arch/$repo
 
 ### United Kingdom
 ## London
 # Server = http://uk.mirror.archlinuxarm.org/$arch/$repo
+## cicku (github)
+# Server = https://uk.mirrors.cicku.me/archlinuxarm/$arch/$repo
 
 ### United States
 ## California
@@ -89,3 +183,9 @@ Server = http://mirror.archlinuxarm.org/$arch/$repo
 # Server = http://nj.us.mirror.archlinuxarm.org/$arch/$repo
 ## Princeton University
 # Server = https://mirror.math.princeton.edu/pub/archlinuxarm/$arch/$repo
+## cicku (github)
+# Server = https://us.mirrors.cicku.me/archlinuxarm/$arch/$repo
+## LQY
+# Server = https://m.lqy.me/archlinuxarm/$arch/$repo
+## UC Berkeley
+# Server = https://mirrors.ocf.berkeley.edu/archlinuxarm/$arch/$repo
