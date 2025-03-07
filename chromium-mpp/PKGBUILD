@@ -1,6 +1,3 @@
-# Based on alarm/extra/chromium, with Rockchip MPP support
-#   alarm/extra/chromium is based on archlinux/extra/chromium
-
 # Maintainer: Evangelos Foutras <foutrelis@archlinux.org>
 # Contributor: Pierre Schmitz <pierre@archlinux.de>
 # Contributor: Jan "heftig" Steffens <jan.steffens@gmail.com>
@@ -17,24 +14,19 @@
 
 highmem=1
 
-_pkgname=chromium
-pkgname=${_pkgname}-mpp
-_pkgver_short=129.0.6668
-pkgver=${_pkgver_short}.100
+pkgname=chromium
+pkgver=132.0.6834.159
 pkgrel=1
 _launcher_ver=8
 _manual_clone=0
 _system_clang=1
 pkgdesc="A web browser built for speed, simplicity, and security"
-arch=('aarch64')
+arch=('x86_64')
 url="https://www.chromium.org/Home"
 license=('BSD-3-Clause')
-provides=("chromium=${pkgver}" "chromedriver=${pkgver}")
-conflicts=('chromium' 'chromedriver')
 depends=('gtk3' 'nss' 'alsa-lib' 'xdg-utils' 'libxss' 'libcups' 'libgcrypt'
          'ttf-liberation' 'systemd' 'dbus' 'libpulse' 'pciutils' 'libva'
          'libffi' 'desktop-file-utils' 'hicolor-icon-theme')
-depends+=('libv4l-rkmpp')
 makedepends=('python' 'gn' 'ninja' 'clang' 'lld' 'gperf' 'nodejs' 'pipewire'
              'rust' 'rust-bindgen' 'qt5-base' 'qt6-base' 'java-runtime-headless'
              'git')
@@ -47,35 +39,24 @@ optdepends=('pipewire: WebRTC desktop sharing under Wayland'
 options=('!lto') # Chromium adds its own flags for ThinLTO
 source=(https://commondatastorage.googleapis.com/chromium-browser-official/chromium-$pkgver.tar.xz
         https://github.com/foutrelis/chromium-launcher/archive/v$_launcher_ver/chromium-launcher-$_launcher_ver.tar.gz
-        git+https://github.com/JeffyCN/meta-rockchip.git
-        p010-Zero-Copy-for-VA-API-Decoding-for-Vulkan.patch
-        add-feature-to-allow-zero-copy-video-formats.patch
         compiler-rt-adjust-paths.patch
         increase-fortify-level.patch
         use-oauth2-client-switches-as-default.patch
         0001-widevine-support-for-arm.patch
         0002-Run-blink-bindings-generation-single-threaded.patch
-        0003-Fix-eu-strip-build-for-newer-GCC.patch
-        0004-media-sandbox-always-lookup-libv4l2-at-usr-lib-libv4.patch)
-sha256sums=('281daed29a5cb546f6273130035d9980666d2232f356ad95fc06af3c90121bc2'
+        0003-Fix-eu-strip-build-for-newer-GCC.patch)
+sha256sums=('564cc8a258b16d1c6151721a2a72e43ba80642326b33aa79439bba354e686068'
             '213e50f48b67feb4441078d50b0fd431df34323be15be97c55302d3fdac4483a'
-            'SKIP'
-            'SKIP'
-            '713dab4f8c26790c0e4a4c5ce6a9269e90446df5370cc14214a01a363f7afe39'
             'b3de01b7df227478687d7517f61a777450dca765756002c80c4915f271e2d961'
             'd634d2ce1fc63da7ac41f432b1e84c59b7cceabf19d510848a7cff40c8025342'
-            'a9b417b96daec33c9059065e15b3a92ae1bf4b59f89d353659b335d9e0379db6'
-            '4246da8a2d0bd689b6c8a6ce3042e72ec72497ea64ad47ceb92334afa34a27f1'
-            '123dbf9cc82085242ee4a9bdaf6354257ea8eba993fb45fcb7f407a176c29abd'
-            '13e866a9f22a90fde979cc11b15b45fca7f00c78ebb55b41610415c24790bc85'
-            '2bf1f2ca68c5901a24ec4be1e1153cc418b298eeb3bf53b4cd5b3d6c61550c56')
-
-# Rockchip MPP Patches Path
-_patch=meta-rockchip/dynamic-layers/recipes-browser/chromium/chromium_${_pkgver_short}
+            '6de648d449159dd579e42db304aca0a36243f2ac1538f8d030473afbbc8ff475'
+            '5a45799258abde6836bef7209c10935ccf4c09bdd487a008b4d37a96f9b7af58'
+            '1721a7355822fa045698f613a9cda28f42cad58bfe2074e7044691f0b518c5a6'
+            '835ff938f21633abf7d5ec43be09014c8be060a919c8651dadbb2015dfef8216')
 
 if (( _manual_clone )); then
   source[0]=fetch-chromium-release
-  makedepends+=('python-httplib2' 'python-pyparsing' 'python-six')
+  makedepends+=('python-httplib2' 'python-pyparsing' 'python-six' 'npm' 'rsync')
 fi
 
 # Possible replacements are listed in build/linux/unbundle/replace_gn_files.py
@@ -92,7 +73,6 @@ declare -gA _system_libs=(
   #[jsoncpp]=jsoncpp  # needs libstdc++
   #[libaom]=aom
   #[libavif]=libavif  # needs -DAVIF_ENABLE_EXPERIMENTAL_GAIN_MAP=ON
-  [libdrm]=
   [libjpeg]=libjpeg-turbo
   [libpng]=libpng
   #[libvpx]=libvpx
@@ -128,19 +108,11 @@ prepare() {
   # Allow building against system libraries in official builds
   sed -i 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' \
     tools/generate_shim_headers/generate_shim_headers.py
-  
+
   # Arch Linux ARM fixes
   patch -p1 -i ../0001-widevine-support-for-arm.patch
   patch -p1 -i ../0002-Run-blink-bindings-generation-single-threaded.patch
   patch -p1 -i ../0003-Fix-eu-strip-build-for-newer-GCC.patch
-
-  # Rockchip MPP Patches
-  for p in ../${_patch}/*.patch; do
-    echo "Custom Patching with ${p}"
-    patch -p1 -N -i $p || true
-  done
-  # libv4l2 fix for Arch Linux
-  patch -p1 -i ../0004-media-sandbox-always-lookup-libv4l2-at-usr-lib-libv4.patch
 
   if [[ $CARCH == "armv7h" ]]; then
     export ALARM_NINJA_JOBS="4"
@@ -165,8 +137,6 @@ prepare() {
   patch -Np1 -i ../use-oauth2-client-switches-as-default.patch
 
   # Upstream fixes
-  patch -Np1 -i ../p010-Zero-Copy-for-VA-API-Decoding-for-Vulkan.patch
-  patch -Np1 -i ../add-feature-to-allow-zero-copy-video-formats.patch
 
   # Allow libclang_rt.builtins from compiler-rt >= 16 to be used
   patch -Np1 -i ../compiler-rt-adjust-paths.patch
@@ -180,11 +150,6 @@ prepare() {
   rm third_party/node/linux/node-linux-x64/bin/node
   ln -s /usr/bin/node third_party/node/linux/node-linux-x64/bin/
   ln -s /usr/bin/java third_party/jdk/current/bin/
-
-  # test deps are broken for ui/lens with system ICU
-  # "//third_party/icu:icuuc_public" (taken from Gentoo ebuild)
-  sed -i '/source_set("unit_tests") {/,/}/d' chrome/browser/ui/lens/BUILD.gn
-  sed -i '/lens:unit_tests/d' chrome/test/BUILD.gn components/BUILD.gn
 
   if (( !_system_clang )); then
     # Use prebuilt rust as system rust cannot be used due to the error:
@@ -274,7 +239,7 @@ build() {
       'clang_base_path="/usr"'
       'clang_use_chrome_plugins=false'
       "clang_version=\"$_clang_version\""
-      'chrome_pgo_phase=0' # needs newer clang to read the bundled PGO profile
+      #'chrome_pgo_phase=0' # needs newer clang to read the bundled PGO profile
     )
 
     # Allow the use of nightly features with stable Rust compiler
@@ -291,12 +256,6 @@ build() {
   if [[ $CARCH == "armv7h" ]]; then
     _flags+=('use_thin_lto=false')
   fi
-
-  _flags+=(
-    'use_v4l2_codec=true'
-    'use_v4lplugin=true'
-    'use_linux_v4l2_only=true'
-  )
 
   # Facilitate deterministic builds (taken from build/config/compiler/BUILD.gn)
   CFLAGS+='   -Wno-builtin-macro-redefined'
@@ -397,13 +356,6 @@ package() {
   done
 
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/chromium/LICENSE"
-}
-
-post_install() {
-    echo "Tips: For EGL support, pass the flags --use-gl=angle and --use-angle=gles-egl"
-    echo "Tips: For Wayland support, pass the flag --use-cmd-decoder=passthrough"
-    echo "Tips: For panfork, pass LD_LIBRARY_PATH=/usr/lib/mali-valhall-g610/x11-wayland-gbm"
-    echo "Tips: For xwayland, pass the flag --use-cmd-decoder=passthrough"
 }
 
 # vim:set ts=2 sw=2 et:
