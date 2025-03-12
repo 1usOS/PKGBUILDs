@@ -34,6 +34,7 @@ package() {
 }
 
 post_install() {
-    systemctl enable --now fydetabduo.service
+    echo "Enabling system services ..."
+    systemctl enable fydetabduo.service
     systemctl enable fix-display.service
 }
