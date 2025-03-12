@@ -7,10 +7,6 @@
 	path = linux-aarch64-rockchip-bsp6.1-joshua-git
 	url = https://github.com/7Ji-PKGBUILDs/linux-aarch64-rockchip-bsp6.1-joshua-git.git
 	branch = master
-[submodule "linux-aarch64-rockchip-joshua-git"]
-	path = linux-aarch64-rockchip-joshua-git
-	url = https://github.com/7Ji-PKGBUILDs/linux-aarch64-rockchip-joshua-git.git
-	branch = master
 [submodule "linux-firmware-joshua-git"]
 	path = linux-firmware-joshua-git
 	url = https://github.com/7Ji-PKGBUILDs/linux-firmware-joshua-git.git
