@@ -1,0 +1,14 @@
+[Unit]
+Description=FydeTab Duo extra modules
+After=display-manager.service
+Before=bluetooth.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/modprobe himax_tp
+ExecStart=/usr/bin/modprobe mh248-fyde
+ExecStart=sh -c 'echo "s2idle" > /sys/power/mem_sleep'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
