@@ -14,12 +14,13 @@ source=('fydetabduo.service'
         'fydetab.rules'
         '90-fydetab.hwdb'
         'https://github.com/openFyde/overlay-fydetab_duo-openfyde/raw/r120-dev/chromeos-base/chromeos-bsp-fydetab_duo-openfyde/files/firmware/Himax_firmware.bin')
-sha256sums=('eb9e0e949c022779c21cfd46c465b7bcb9ad955b7d4136393b09bfb311015f3c'
+sha256sums=('SKIP'
             '18f5dbc2275ebfbfac69332948c9775cacaea44d35fc1788eae457ce3cebcb19'
             '5eff8eb75f3c32d27dc623ec68271b56905f5483b11bd39dc878c75e83369ceb'
             '65f367929918a34c260c8b6a00c8fa64a2c2c346bef505985ce1048069445367'
             '36b5a7bcffc598d22136f920478e47592fbf6e8396ddb4eef4636652b4007e6b'
-            'cf4a7fcd770d4c176128257a1a63360bc0b4da5bb85a46f61cff88aff9d02537')
+            'cf4a7fcd770d4c176128257a1a63360bc0b4da5bb85a46f61cff88aff9d02537'
+            'SKIP')
 
 package() {
     install -Dm644 "${srcdir}/fydetabduo.service" "${pkgdir}/usr/lib/systemd/system/fydetabduo.service"
