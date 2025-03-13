@@ -7,6 +7,7 @@ pkgdesc="Fixes for FydeTab Duo"
 arch=('any')
 url="https://fydetabduo.com/"
 license=('GPL')
+install=fydetab.install
 source=('fydetabduo.service'
         'fix-display'
         'fix-display.service'
@@ -32,10 +33,4 @@ package() {
     mkdir -p "${pkgdir}/usr/lib/udev/hwdb.d"
     install -Dm644 "${srcdir}/90-fydetab.hwdb" "${pkgdir}/usr/lib/udev/hwdb.d/"
     install -Dm755 "${srcdir}/fix-display" "${pkgdir}/usr/bin/fix-display"
-}
-
-post_install() {
-    echo "Enabling system services ..."
-    systemctl enable fydetabduo.service
-    systemctl enable fix-display.service
 }
