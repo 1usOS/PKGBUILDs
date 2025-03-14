@@ -12,4 +12,4 @@ for $i (@mods){
 
 eval "$cmd"
 
-git submodule update
+git submodule update --force --remote
