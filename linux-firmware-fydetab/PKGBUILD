@@ -8,16 +8,16 @@ arch=('any')
 url="https://fydetabduo.com/"
 license=('GPL')
 install=fydetab.install
-source=('fydetabduo.service'
-        'fix-display'
-        'fix-display.service'
+source=('init-fydetab-modules.service'
+        'init-fydetab-display'
+        'init-fydetab-display.service'
         '50-suspend-state.conf'
         'fydetab.rules'
         '90-fydetab.hwdb'
         'https://github.com/openFyde/overlay-fydetab_duo-openfyde/raw/r120-dev/chromeos-base/chromeos-bsp-fydetab_duo-openfyde/files/firmware/Himax_firmware.bin')
-sha256sums=('76b4d773ac624c8b922a4e90f888376c9a2caa963259265e041aa8bbfea0f30c'
+sha256sums=('6f66be3e6a7b76851366fa95714bd2b9aed8524e2a9d98674b19ea9732b22d34'
             '18f5dbc2275ebfbfac69332948c9775cacaea44d35fc1788eae457ce3cebcb19'
-            '5eff8eb75f3c32d27dc623ec68271b56905f5483b11bd39dc878c75e83369ceb'
+            '5c565e14130fe25dedb3ef85318fe1da469b33618a298f69a77ebe21c3a69763'
             '816c3b9169aadc8b4a4e42d22d8480ecd22408f1ec3d224d1980382c343b619e'
             '65f367929918a34c260c8b6a00c8fa64a2c2c346bef505985ce1048069445367'
             '36b5a7bcffc598d22136f920478e47592fbf6e8396ddb4eef4636652b4007e6b'
@@ -31,7 +31,7 @@ pkgver() {
 }
 
 package() {
-    install -Dm644 "${srcdir}/fydetabduo.service" "${pkgdir}/usr/lib/systemd/system/fydetabduo.service"
+    install -Dm644 "${srcdir}/init-fydetab-modules.service" "${pkgdir}/usr/lib/systemd/system/init-fydetab-modules.service"
     install -Dm644 "${srcdir}/50-suspend-state.conf" "${pkgdir}/usr/lib/systemd/system/sleep.conf.d"
     install -Dm644 "${srcdir}/fix-display.service" "${pkgdir}/usr/lib/systemd/system/fix-display.service"
     install -Dm644 "${srcdir}/Himax_firmware.bin" "${pkgdir}/usr/lib/firmware/Himax_firmware.bin"

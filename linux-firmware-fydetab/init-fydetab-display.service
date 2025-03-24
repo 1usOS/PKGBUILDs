@@ -4,7 +4,7 @@ DefaultDependencies=no
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/fix-display
+ExecStart=/usr/bin/init-fydetab-display
 
 [Install]
 WantedBy=sysinit.target

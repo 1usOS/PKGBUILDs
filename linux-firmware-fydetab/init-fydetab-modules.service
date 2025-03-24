@@ -1,5 +1,5 @@
 [Unit]
-Description=Start FydeTab Duo modules
+Description=Initialize FydeTab modules
 
 [Service]
 Type=oneshot
