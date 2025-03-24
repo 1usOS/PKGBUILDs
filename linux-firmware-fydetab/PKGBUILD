@@ -1,7 +1,7 @@
 # Maintainer: Samuel (kwankiu)
 
 pkgname=linux-firmware-fydetab
-pkgver=20250314.c53ac9d
+pkgver=20250314
 pkgrel=1
 pkgdesc="Firmware files for Linux - FydeTab specific firmware"
 arch=('any')
@@ -23,13 +23,6 @@ sha256sums=('6f66be3e6a7b76851366fa95714bd2b9aed8524e2a9d98674b19ea9732b22d34'
             '36b5a7bcffc598d22136f920478e47592fbf6e8396ddb4eef4636652b4007e6b'
             'SKIP')
 optdepends=('linux-firmware-joshua-git')
-
-pkgver() {
-    cd $srcdir
-    printf '%s.%s' \
-        $(TZ=UTC git log -1 --format=%cd --date=format-local:%Y%m%d -- .) \
-        $(git log -1 --format=%h -- .)
-}
 
 package() {
     install -Dm644 "${srcdir}/init-fydetab-modules.service" "${pkgdir}/usr/lib/systemd/system/init-fydetab-modules.service"
