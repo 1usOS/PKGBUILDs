@@ -25,6 +25,7 @@ sha256sums=('6f66be3e6a7b76851366fa95714bd2b9aed8524e2a9d98674b19ea9732b22d34'
 optdepends=('linux-firmware-joshua-git')
 
 pkgver() {
+    cd $srcdir
     printf '%s.%s' \
         $(TZ=UTC git log -1 --format=%cd --date=format-local:%Y%m%d -- .) \
         $(git log -1 --format=%h -- .)
