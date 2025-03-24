@@ -33,11 +33,11 @@ pkgver() {
 package() {
     install -Dm644 "${srcdir}/init-fydetab-modules.service" "${pkgdir}/usr/lib/systemd/system/init-fydetab-modules.service"
     install -Dm644 "${srcdir}/50-suspend-state.conf" "${pkgdir}/usr/lib/systemd/system/sleep.conf.d"
-    install -Dm644 "${srcdir}/fix-display.service" "${pkgdir}/usr/lib/systemd/system/fix-display.service"
+    install -Dm644 "${srcdir}/init-fydetab-display.service" "${pkgdir}/usr/lib/systemd/system/init-fydetab-display.service"
     install -Dm644 "${srcdir}/Himax_firmware.bin" "${pkgdir}/usr/lib/firmware/Himax_firmware.bin"
     mkdir -p "${pkgdir}/etc/udev/rules.d/"
     install -Dm644 "${srcdir}/fydetab.rules" "${pkgdir}/etc/udev/rules.d/"
     mkdir -p "${pkgdir}/usr/lib/udev/hwdb.d"
     install -Dm644 "${srcdir}/90-fydetab.hwdb" "${pkgdir}/usr/lib/udev/hwdb.d/"
-    install -Dm755 "${srcdir}/fix-display" "${pkgdir}/usr/bin/fix-display"
+    install -Dm755 "${srcdir}/init-fydetab-display" "${pkgdir}/usr/bin/init-fydetab-display"
 }
