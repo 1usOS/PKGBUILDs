@@ -22,7 +22,7 @@ sha256sums=('6f66be3e6a7b76851366fa95714bd2b9aed8524e2a9d98674b19ea9732b22d34'
             '65f367929918a34c260c8b6a00c8fa64a2c2c346bef505985ce1048069445367'
             '36b5a7bcffc598d22136f920478e47592fbf6e8396ddb4eef4636652b4007e6b'
             'SKIP')
-depends=('linux-firmware-joshua')
+optdepends=('linux-firmware-joshua-git')
 
 pkgver() {
     printf '%s.%s' \
