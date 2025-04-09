@@ -3,7 +3,7 @@
 _pkgbase=rtl88x1bu
 _pkgver=0.2
 pkgname=$_pkgbase-dkms-git
-pkgver=$_pkgver.r93.f6aaa3c
+pkgver=$_pkgver.r23.ebb8dee
 pkgrel=1
 pkgdesc="Kernel module for USB WiFi Adapters based on Realtek RTL8831BU and RTL8851BU Chipsets"
 arch=('x86_64' 'aarch64')
@@ -16,10 +16,12 @@ source=("git+https://github.com/heesn/rtl8831.git"
 sha256sums=('SKIP'
             'SKIP')
 
-prepare_aarch64() {
+prepare() {
     cd "$srcdir/rtl8831"
-    echo "Patching for ARM64"
-    patch -p1 -N -i $srcdir/0001-Compile-for-ARM64.patch
+    if [[ $CARCH == "aarch64" ]]; then
+        echo "Patching for ARM64"
+        patch -p1 -N -i $srcdir/0001-Compile-for-ARM64.patch
+    fi
 }
 
 pkgver() {
