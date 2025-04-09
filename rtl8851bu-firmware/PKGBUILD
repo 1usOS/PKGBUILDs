@@ -1,0 +1,21 @@
+# Maintainer: Samuel (kwankiu) <info@1us.ca>
+
+pkgname=rtl8851bu-firmware
+pkgver=20240409
+pkgrel=1
+pkgdesc="Linux Driver for USB WiFi Adapters based on the RTL8831BU and RTL8851BU Chipsets"
+arch=('x86_64' 'aarch64')
+url="https://github.com/kwankiu/rtl8851bu"
+license=('GPL2')
+source=("git+https://github.com/kwankiu/rtl8851bu.git")
+md5sums=('SKIP')
+
+build() {
+  cd "$srcdir/rtl8851bu"
+  make
+}
+
+package() {
+  cd "$srcdir/rtl8851bu"
+  make DESTDIR="$pkgdir" install
+}
