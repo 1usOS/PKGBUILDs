@@ -1,0 +1,27 @@
+From c16fa438fd8870d621f72a6cc4880da09e8d3cdf Mon Sep 17 00:00:00 2001
+From: Samuel <info@1us.ca>
+Date: Thu, 10 Apr 2025 01:09:14 +0800
+Subject: [PATCH 1/1] Compile for ARM64
+
+---
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 1907e44..6d80f71 100644
+--- a/Makefile
++++ b/Makefile
+@@ -224,8 +224,8 @@ CONFIG_LAYER2_ROAMING = y
+ CONFIG_ROAMING_FLAG = 0x3
+ 
+ ###################### Platform Related #######################
+-CONFIG_PLATFORM_I386_PC = y
+-CONFIG_PLATFORM_ARM64_PC = n
++CONFIG_PLATFORM_I386_PC = n
++CONFIG_PLATFORM_ARM64_PC = y
+ CONFIG_PLATFORM_RTL8198D = n
+ CONFIG_PLATFORM_ANDROID_X86 = n
+ CONFIG_PLATFORM_ANDROID_INTEL_X86 = n
+-- 
+2.39.5 (Apple Git-154)
+
