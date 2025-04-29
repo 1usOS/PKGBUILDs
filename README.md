@@ -25,7 +25,7 @@ The following branches contains PKGBUILDs of our pacman repositories.
 
 - [1usOS](https://github.com/1usOS/PKGBUILDs/tree/1usOS) - This branch stores PKGBUILDs for packages related to 1usOS Branding and 1usOS Experience
 
-- [misc](https://github.com/1usOS/PKGBUILDs/tree/misc) - This branch stores PKGBUILDs of useful packages that isn't available on the Arch Linux core/extra repository, or need to be modified for non x86-64 platform.
+- [misc](https://github.com/1usOS/PKGBUILDs/tree/misc) - This branch stores PKGBUILDs of fixed, improved, & missing packages for non x86-64 platform, as well as some other useful PKGBUILDs
 
 - [multilib](https://github.com/1usOS/PKGBUILDs/tree/multilib) - This branch stores PKGBUILDs of 32-bit packages
 
