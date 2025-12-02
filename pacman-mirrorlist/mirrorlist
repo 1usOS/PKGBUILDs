@@ -1,6 +1,6 @@
 #
 # Arch Linux ARM repository mirrorlist
-# Last updated on 2024-10-29
+# Last updated on 2025-12-02
 #
 
 ## Arch Linux ARM Mirror with load balancing
@@ -32,8 +32,6 @@ Server = http://mirror.archlinuxarm.org/$arch/$repo
 # Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/$arch/$repo
 ## Alibaba Cloud
 # Server = https://mirrors.aliyun.com/archlinuxarm/$arch/$repo
-## Beijing Jiaotong University
-# Server = https://mirror.bjtu.edu.cn/archlinuxarm/$arch/$repo
 ## Beijing Foreign Studies University
 # Server = https://mirrors.bfsu.edu.cn/archlinuxarm/$arch/$repo
 ## Chongqing University of Posts and Telecommunications
@@ -48,8 +46,6 @@ Server = http://mirror.archlinuxarm.org/$arch/$repo
 # Server = https://mirror.nyist.edu.cn/archlinuxarm/$arch/$repo
 ## Shanghai Jiao Tong University
 # Server = https://mirror.sjtu.edu.cn/archlinuxarm/$arch/$repo
-## Tencent Cloud
-# Server = https://mirrors.cloud.tencent.com/archlinuxarm/$arch/$repo
 ## NetEase, Inc.
 # Server = https://mirrors.163.com/archlinuxarm/$arch/$repo
 ## Institute of Software Chinese Academy of Sciences
@@ -77,8 +73,6 @@ Server = http://mirror.archlinuxarm.org/$arch/$repo
 ## Falkenstein
 # Server = http://eu.mirror.archlinuxarm.org/$arch/$repo
 # Server = http://de5.mirror.archlinuxarm.org/$arch/$repo
-## xTom (DE) and USTCLUG
-# Server = https://mirrors.xtom.de/archlinux-arm/$arch/$repo
 ## Halifax dormitory of RWTH Aachen University
 # Server = https://ftp.halifax.rwth-aachen.de/archlinux-arm/$arch/$repo
 ## cicku (github)
@@ -107,10 +101,6 @@ Server = http://mirror.archlinuxarm.org/$arch/$repo
 ### Japan
 ## Tokyo
 # Server = http://jp.mirror.archlinuxarm.org/$arch/$repo
-## xTom (JP) and USTCLUG
-# Server = https://mirrors.xtom.jp/archlinux-arm/$arch/$repo
-## Cat Networks
-# Server = https://mirrors.cat.net/archlinux-arm/$arch/$repo
 ## cicku (github)
 # Server = https://jp.mirrors.cicku.me/archlinuxarm/$arch/$repo
 ## Jing
@@ -169,8 +159,6 @@ Server = http://mirror.archlinuxarm.org/$arch/$repo
 # Server = https://free.nchc.org.tw/archlinuxarm/$arch/$repo
 
 ### United Kingdom
-## London
-# Server = http://uk.mirror.archlinuxarm.org/$arch/$repo
 ## cicku (github)
 # Server = https://uk.mirrors.cicku.me/archlinuxarm/$arch/$repo
 
