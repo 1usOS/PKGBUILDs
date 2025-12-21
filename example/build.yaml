@@ -1,8 +1,8 @@
 # Example of Repository Configuration - Build
 # Format of this file is documented at https://github.com/7Ji/arch_repo_builder#config
-dephash_strategy: strict
-basepkgs: [base-devel, bc, distcc, ccache]
-home_binds: [.cache/ccache, .config/ccache]
+#dephash_strategy: strict #uncomment if using ARB
+#basepkgs: [base-devel, bc, distcc, ccache] #uncomment if using ARB
+#home_binds: [.cache/ccache, .config/ccache] #uncomment if using ARB
 pkgbuilds:
   # PKGBUILD from Arch User Repository (AUR)
   # This example clones from https://aur.archlinux.org/yay-git.git
