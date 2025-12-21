@@ -7,3 +7,7 @@ packages:
   # This example download packages that starts with the keyword neofetch from http://mirror.archlinuxarm.org/aarch64/extra
   # Note: DO NOT put a slash at the end of the url
   neofetch: http://mirror.archlinuxarm.org/aarch64/extra
+  # Mirror from Google Drive
+  # This example download package from google drive using the shared file ID
+  # Note: Currently only support ID of the exact file, folder is not supported
+  chromium: GDRIVE/REPLACE_WITH_FILE_ID
